@@ -1,0 +1,17 @@
+
+RUN ALL TEST SUITES AND PLACE TEST RESULTS IN REPORTS FOLDER
+robot -d reports testsuite
+
+RUN ALL TEST SUITES AND TEST RESULTS IN REPORTS FOLDER WITH TIMESTAMP
+$ts = Get-Date -Format "yyyyMMdd_HHmmss"
+robot -d "reports\$ts" testsuite
+
+RUN TESTS BY TAGS
+robot -d reports -i [TAG] testsuite
+
+
+
+$ts = Get-Date -Format "yyyyMMdd_HHmmss"
+robot -d "reports\$ts" testsuite
+robot --rerunfailed "reports\$ts\output.xml" -d "reports\$ts\rerun" testsuite
+rebot --merge "reports\$ts\output.xml" "reports\$ts\rerun\output.xml" -d "reports\$ts\final"
