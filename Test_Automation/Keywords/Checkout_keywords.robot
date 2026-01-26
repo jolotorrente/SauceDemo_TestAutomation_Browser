@@ -17,7 +17,6 @@ Resource        ../Variables/Checkout_variables.robot
 # This Keyword is combined Keyword to Complete Checkout Process
 Checkout Cart
     [Arguments]    ${firstname}    ${lastname}    ${postalcode}
-    Set Screenshot Directory        ${SCREENSHOT_CHECKOUT_DIR}
     Open Cart
     Validate Cart
     Initiate Checkout
@@ -114,7 +113,6 @@ Finish Checkout
 
 # This keyword Validates existence of Checkout: User Information page elements
 Validate User Information Page Elements
-    Set Screenshot Directory                   ${SCREENSHOT_CHECKOUT_DIR}
     Open Cart
     Initiate Checkout
     @{userinfo_elem}=    Create List

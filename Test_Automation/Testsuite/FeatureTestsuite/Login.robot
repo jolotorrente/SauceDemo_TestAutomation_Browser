@@ -27,23 +27,23 @@ Login 01 - Login using valid Username and Password
 
 Login 02 - Negative Test: Login using valid Username Invalid Password
     [Tags]  Medium  Smoke
-    User Login                  ${USERNAME}         ${INVALIDPASSWORD}
+    User Failed Login           ${USERNAME}         ${INVALIDPASSWORD}
 
 Login 03 - Negative Test: Login using Locked Out User
     [Tags]  Medium
-    User Login                  ${LOCKED_USERNAME}  ${PASSWORD}
+    User Failed Login           ${LOCKED_USERNAME}  ${PASSWORD}
 
 Login 04 - Negative Test: Login using Empty or Null Username
     [Tags]  Low
-    User Login                  ${NULL}             ${PASSWORD}
+    User Failed Login           ${NULL}             ${PASSWORD}
 
 Login 05 - Negative Test: Login using Empty or Null Password
     [Tags]  Low
-    User Login                  ${USERNAME}         ${NULL}
+    User Failed Login           ${USERNAME}         ${NULL}
 
 Login 06 - Login Credentials should allow alphanumeric and special characters
     [Tags]  Low
-    Validate Input Fields       ${INPUT_VALIDATION}
+    Validate Input Fields       @{INPUT_VALIDATION}
 
 Login 07 - Validate Login Page Elements
     [Tags]  Low     Smoke

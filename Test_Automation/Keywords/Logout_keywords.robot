@@ -9,67 +9,54 @@ Resource        ../Keywords/Global_keywords.robot
 Resource        ../Variables/Login_variables.robot
 Resource        ../Variables/Logout_variables.robot
 
-### Documentation ###
-Documentation   This Keyword Robot File is a compilation Logout functionality
-...             Logout to Website
-...             Security Checks after Proper Logout
-
 *** Keywords ***
 ###############################
 ## Logout Component Keywords ##
 ###############################
 
-
-# This keyword Validates Logout Session on the Test Website (saucedemo.com)
+# This keyword Validates Logout Session on the Test Website
 Validate Successful Logout
     Validate Login Page Elements
-    # Validate the Inventory Page Elements are no longer Available after Logout
+    # Use Browser library's automatic waiting with 'hidden' state
     ${unexpected_elements}=    Create List
-    ...     //*[@id='react-burger-menu-btn']
-    ...     //*[@class='title' and text()='Products']
-    ...     //*[@class='shopping_cart_link']
-    ...     //*[@class='product_sort_container']
+    ...  id=react-burger-menu-btn
+    ...  css=.title >> text=Products
+    ...  css=.shopping_cart_link
+    ...  css=.product_sort_container
     FOR    ${elem}    IN    @{unexpected_elements}
-        Wait For Elements State    ${elem}    hidden
+        Wait For Elements State    ${elem}    hidden    timeout=5s
     END
-
 
 # This keyword Validates Logout Session on Back Navigation
 Confirm Logout Session on Back Navigation
-    # This will try to Navigate Back on the previous page, which was a Logged In State, using a Javascript
-    Evaluate JavaScript                             window.history.back()
-    # Build Error Message Container XPath
-    ${errorcontainer}=    Set Variable              //*[@class='error-message-container error']
-    # Verify that Error Occured that user can only access previous page when you are logged in
-    Wait For Elements State                         ${errorcontainer}    visible
-    ${actualerror}=    Get Text                    ${errorcontainer}
-    Element Text Should Be                          ${errorcontainer}    ${actualerror}
-
+    # Replaced Evaluate JavaScript window.history.back() with native Browser keyword
+    Go Back
+    # In Browser library, Get Text can perform assertions directly (==)
+    ${errorcontainer}=    Set Variable    css=.error-message-container.error
+    Wait For Elements State               ${errorcontainer}    visible
+    # Combined Get Text and Element Text Should Be into one robust assertion
+    Get Text    ${errorcontainer}    ==    Epic sadface: You can only access '/inventory.html' when you are logged in.
 
 # This keyword Validates Logout Session after Page Refresh
 Validate Successful Logout after Refresh
-    Reload Page
+    # Replaced 'Reload Page' with native 'Reload'
+    Reload
     Validate Login Page Elements
 
-
-# This keyword Verifies Security Check on Restristed Web Pages that Requires Login (saucedemo.com)
+# This keyword Verifies Security Check on Restricted Web Pages
 Validate Secured Pages after Logout
-    # Build Variable for XPATH locator
-    # Build List Variable for the following Webpages
-    # For Loop to Navigate to different websites, declared as List Variable, that require Login to verify that pages are Unaccessible
     FOR    ${url}    IN    @{PROTECTED_PAGES}
-        Go To                                       ${url}
+        Go To    ${url}
         Validate Protected Page Error
     END
     # Navigate to a random Product Page
-    ${productindex}=    Evaluate                    random.randint(0, 10)    random
-    Go To                                           https://www.saucedemo.com/inventory-item.html?id=${productindex}
+    ${productindex}=    Evaluate    random.randint(0, 10)    modules=random
+    Go To               https://www.saucedemo.com/inventory-item.html?id=${productindex}
     Validate Protected Page Error
-    Reload Page
+    Reload
 
-
-# This Keyword is a sub-keyword helper to Validate Protected Pages
+# Helper sub-keyword with 2026 inline assertion syntax
 Validate Protected Page Error
-    Wait For Elements State                         ${ERROR_LOCATOR}    visible
-    ${actualerror}=    Get Text                    ${ERROR_LOCATOR}
-    Element Text Should Be                          ${ERROR_LOCATOR}    ${actualerror}
+    Wait For Elements State    ${ERROR_LOCATOR}    visible
+    # Browser Library recommendation: Perform the assertion inside the Get Text keyword
+    Get Text    ${ERROR_LOCATOR}    contains    Epic sadface

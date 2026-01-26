@@ -20,7 +20,8 @@ ${NULL}                             ${EMPTY}
 ## LIST OF LOGIN ERRORS ##
 ##########################
 &{LOGIN_ERRORS}
-...    invalid=Epic sadface: Username and password do not match any user in this service
-...    locked=Epic sadface: Sorry, this user has been locked out.
-...    emptyuser=Epic sadface: Username is required
-...    emptypass=Epic sadface: Password is required
+...  invalid=Epic sadface: Username and password do not match any user in this service
+...  locked=Epic sadface: Sorry, this user has been locked out.
+...  emptyuser=Epic sadface: Username is required
+...  emptypass=Epic sadface: Password is required
+...  loggedout=Epic sadface: You can only access '/inventory.html' when you are logged in.

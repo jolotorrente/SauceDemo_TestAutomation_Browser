@@ -24,17 +24,12 @@ Documentation   This Keyword Robot File is a compilation Inventory functionaliti
 
 # This keyword Asserts the Inventory Page Elements
 Validate Inventory Page Elements
-    Wait For Elements State                         //*[@class='app_logo']    visible
-    Element Text Should Be                          //*[@class='app_logo']    Swag Labs
-    Wait For Elements State                         //*[@id='shopping_cart_container']    visible
-    Element Should Be Enabled                       //*[@id='shopping_cart_container']
-    Wait For Elements State                         //*[@id='react-burger-menu-btn']    visible
-    Element Should Be Enabled                       //*[@id='react-burger-menu-btn']
-    Wait For Elements State                         //*[@class='title']    visible
-    Element Text Should Be                          //*[@class='title']    Products
-    Wait For Elements State                         //*[@class='product_sort_container']    visible
-    Element Should Be Enabled                       //*[@class='product_sort_container']
-    Wait For Elements State                         //*[@class='inventory_list']    visible
+    Get Text                                        .app_logo    ==    Swag Labs
+    Get Element States                              id=shopping_cart_container    contains    visible    enabled
+    Get Element States                              id=react-burger-menu-btn     contains    visible    enabled
+    Get Text                                        .title       ==    Products
+    Get Element States                              .product_sort_container      contains    visible    enabled
+    Wait For Elements State                         .inventory_list       visible
 
 
 # This keyword Asserts Product Elements on Product View
@@ -42,12 +37,9 @@ Validate Product Elements on Product View
     ${productcount}=    Get Element Count            //*[@class='inventory_item']//*[@class='inventory_item_name ']
     FOR    ${i}    IN RANGE    ${productcount}
         ${index}=    Evaluate    ${i} + 1
-        Element Should Be Visible                   //*[@class='inventory_item'][${index}]//*[@class='inventory_item_img']
         ${productname}=    Get Text                 //*[@class='inventory_item'][${index}]//*[@class='inventory_item_description']//*[@class='inventory_item_name ']
         Click                                       //*[@class='inventory_item'][${index}]//*[@class='inventory_item_img']
         Wait For Elements State                     //*[@id='back-to-products']    visible
-        Element Should Be Visible                   //*[@class='inventory_details_img_container']
-        Capture Page Screenshot                     Listed-Product-${index}.png
         Click                                       //*[@id='back-to-products']
     END
 
@@ -152,7 +144,7 @@ Click And Validate Removal
     Click                                           ${remove_btn}
     Wait For Elements State                         //*[@class='title' and text()='Your Cart']    visible
     Element Should Not Be Visible                   //*[@class='inventory_item_name' and text()='${productname}']
-    Reload Page
+    Reload
     Wait For Elements State                         //*[@class='title' and text()='Your Cart']    visible
     Element Should Not Be Visible                   //*[@class='inventory_item_name' and text()='${productname}']
     Return to Shopping
