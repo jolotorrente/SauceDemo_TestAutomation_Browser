@@ -22,14 +22,21 @@ Documentation   This Keyword Robot File is a compilation Inventory functionaliti
 ##  Inventory / Shopping Page Component Keywords ##
 ###################################################
 
+
+
 # This keyword Asserts the Inventory Page Elements
 Validate Inventory Page Elements
-    Get Text                                        .app_logo    ==    Swag Labs
-    Get Element States                              id=shopping_cart_container    contains    visible    enabled
-    Get Element States                              id=react-burger-menu-btn     contains    visible    enabled
-    Get Text                                        .title       ==    Products
-    Get Element States                              .product_sort_container      contains    visible    enabled
-    Wait For Elements State                         .inventory_list       visible
+    Wait For Elements State                         //*[@class='app_logo']      visible
+    Get Text                                        //*[@class='app_logo']    ==    Swag Labs
+    Wait For Elements State                         id=shopping_cart_container  visible
+    Get Element States                              id=shopping_cart_container  contains    enabled
+    Wait For Elements State                         id=react-burger-menu-btn    visible
+    Get Element States                              id=react-burger-menu-btn    contains    enabled
+    Wait For Elements State                         //*[@class='title']    visible
+    Get Text                                        //*[@class='title']    ==    Products
+    Wait For Elements State                         //*[@class='product_sort_container']    visible
+    Get Element States                              //*[@class='product_sort_container']    contains    enabled
+    Wait For Elements State                         //*[@class='inventory_list']    visible
 
 
 # This keyword Asserts Product Elements on Product View
@@ -37,16 +44,19 @@ Validate Product Elements on Product View
     ${productcount}=    Get Element Count            //*[@class='inventory_item']//*[@class='inventory_item_name ']
     FOR    ${i}    IN RANGE    ${productcount}
         ${index}=    Evaluate    ${i} + 1
+        Wait For Elements State                     //*[@class='inventory_item'][${index}]//*[@class='inventory_item_img']    visible
         ${productname}=    Get Text                 //*[@class='inventory_item'][${index}]//*[@class='inventory_item_description']//*[@class='inventory_item_name ']
         Click                                       //*[@class='inventory_item'][${index}]//*[@class='inventory_item_img']
-        Wait For Elements State                     //*[@id='back-to-products']    visible
-        Click                                       //*[@id='back-to-products']
+        Wait For Elements State                     id=back-to-products    visible
+        Wait For Elements State                     //*[@class='inventory_details_img_container']    visible
+        Take Screenshot                             Listed-Product-${index}.png
+        Click                                       id=back-to-products
     END
 
 
 # This keyword Returns the total number of products currently displayed on the inventory page
 Get Inventory Product Count
-    Wait For Elements State                         //*[@class='inventory_item']    visible
+    Wait For Elements State                         //*[@class='inventory_item'][1]    visible
     ${productcounter}=    Get Element Count          //*[@class='inventory_item']
     RETURN    ${productcounter}
 
@@ -78,8 +88,8 @@ Generate Random Cart Index
 
 # This keyword Returns the total number of products currently in the cart
 Get Cart Product Count
-    Wait For Elements State                         //*[@class='cart_list']//*[text()='Remove']    visible
-    ${cart_count}=    Get Element Count              //*[@class='cart_list']//*[text()='Remove']
+    Wait For Elements State                         (//*[@class='cart_list']//*[text()='Remove'])[1]    visible
+    ${cart_count}=    Get Element Count             //*[@class='cart_list']//*[text()='Remove']
     RETURN    ${cart_count}
 
 
@@ -100,14 +110,14 @@ Click And Validate Product
     [Arguments]    ${index}
     ${add_btn}=      Set Variable                   //*[@class='inventory_item'][${index}]//*[text()='Add to cart']
     ${productname}=  Get Text                       //*[@class='inventory_item'][${index}]//*[@class='inventory_item_description']//*[@class='inventory_item_name ']
+    # Browser Library automatically scrolls; Scroll To is kept for manual preference
     Scroll To                                       ${add_btn}
     Wait For Elements State                         ${add_btn}    visible
     Click                                           ${add_btn}
     Open Cart
     Wait For Elements State                         //*[@class='title' and text()='Your Cart']    visible
-    Element Should Be Visible                       //*[@class='inventory_item_name' and text()='${productname}']
-    Set Screenshot Directory                        ${SCREENSHOT_INVENTORY_DIR}
-    Capture Page Screenshot                         Product-${productname}_Added_to_Cart.png
+    Wait For Elements State                         //*[@class='inventory_item_name' and text()='${productname}']    visible
+    Take Screenshot                                 Product-${productname}_Added_to_Cart.png
     Return to Shopping
 
 
@@ -143,27 +153,27 @@ Click And Validate Removal
     Wait For Elements State                         ${remove_btn}    visible
     Click                                           ${remove_btn}
     Wait For Elements State                         //*[@class='title' and text()='Your Cart']    visible
-    Element Should Not Be Visible                   //*[@class='inventory_item_name' and text()='${productname}']
+    Wait For Elements State                         //*[@class='inventory_item_name' and text()='${productname}']    detached
     Reload
     Wait For Elements State                         //*[@class='title' and text()='Your Cart']    visible
-    Element Should Not Be Visible                   //*[@class='inventory_item_name' and text()='${productname}']
+    Wait For Elements State                         //*[@class='inventory_item_name' and text()='${productname}']    detached
     Return to Shopping
     Wait For Elements State                         //*[@class='inventory_item' and .//div[text()='${productname}']]    visible
-    Element Should Be Visible                       //*[@class='inventory_item' and .//div[text()='${productname}']]//button[text()='Add to cart']
-    Capture Page Screenshot                         Product-${productname}_Removed_and_Inventory_Checked.png
+    Wait For Elements State                         //*[@class='inventory_item' and .//div[text()='${productname}']]//button[text()='Add to cart']    visible
+    Take Screenshot                                 Product-${productname}_Removed_and_Inventory_Checked.png
     Set Test Message                                ${productname} was removed from the cart    append=yes
 
 
 # This keyword Removes Random Product/s from Inventory page and validates Shopping Cart
 Remove Random Product from Shopping Page
-    Wait For Elements State                         //*[@class='inventory_item']    visible
+    Wait For Elements State                         //*[@class='inventory_item'][1]    visible
     ${total_products}=    Get Element Count          //*[@class='inventory_item']
     @{products_with_remove}=    Create List
     @{remove_btns}=              Create List
     @{add_btns}=                 Create List
     FOR    ${index}    IN RANGE    1    ${total_products + 1}
         ${has_removebtn}=    Run Keyword And Return Status
-        ...    Element Should Be Visible             //*[@class='inventory_item'][${index}]//button[text()='Remove']
+        ...    Wait For Elements State               //*[@class='inventory_item'][${index}]//button[text()='Remove']    visible    timeout=1s
         IF    ${has_removebtn}
             ${product_name}=    Get Text             //*[@class='inventory_item'][${index}]//*[@class='inventory_item_name ']
             Append To List      ${products_with_remove}    ${product_name}
@@ -182,15 +192,16 @@ Remove Random Product from Shopping Page
     Wait For Elements State                         ${selected_add_btn}       visible
     Open Cart
     Wait For Elements State                         //*[@class='title' and text()='Your Cart']    visible
-    Element Should Not Be Visible                   //*[@class='inventory_item_name' and text()='${selected_product}']
+    Wait For Elements State                         //*[@class='inventory_item_name' and text()='${selected_product}']    detached
     Set Test Message                                ${selected_product} was removed from the cart    append=yes
+
 
 
 # This keyword Validates Cart Quantity
 Validate Cart Badge
     Wait For Elements State                         //*[@class='shopping_cart_link']    visible
     ${cartstatus}=    Run Keyword And Return Status
-    ...    Element Should Be Visible                //*[@class='shopping_cart_badge']
+    ...    Wait For Elements State                  //*[@class='shopping_cart_badge']    visible    timeout=1s
     IF    ${cartstatus}
         ${cartcounter}=    Get Text                 //*[@class='shopping_cart_badge']
         Should Be Equal As Integers                 ${cartcounter}    ${rdmquantity}
@@ -203,15 +214,15 @@ Validate Cart Badge
 Validate Shopping Cart Default State
     Open Cart
     Wait For Elements State                         //*[@class='bm-burger-button']    visible
-    Element Should Be Visible                       //*[@class='title' and text()='Your Cart']
-    Element Text Should Be                          //*[@class='title' and text()='Your Cart']    Your Cart
-    Element Should Be Visible                       //*[@class='cart_quantity_label']
-    Element Text Should Be                          //*[@class='cart_quantity_label']    QTY
-    Element Should Be Visible                       //*[@class='cart_desc_label']
-    Element Text Should Be                          //*[@class='cart_desc_label']    Description
-    Element Should Be Visible                       //*[@id='continue-shopping']
-    Element Should Be Enabled                       //*[@id='continue-shopping']
-    Element Text Should Be                          //*[@id='continue-shopping']    Continue Shopping
-    Element Should Be Visible                       //*[@id='checkout']
-    Element Should Be Enabled                       //*[@id='checkout']
-    Element Text Should Be                          //*[@id='checkout']    Checkout
+    Wait For Elements State                         //*[@class='title' and text()='Your Cart']    visible
+    Get Text                                        //*[@class='title' and text()='Your Cart']    ==    Your Cart
+    Wait For Elements State                         //*[@class='cart_quantity_label']    visible
+    Get Text                                        //*[@class='cart_quantity_label']    ==    QTY
+    Wait For Elements State                         //*[@class='cart_desc_label']    visible
+    Get Text                                        //*[@class='cart_desc_label']    ==    Description
+    Wait For Elements State                         //*[@id='continue-shopping']    visible
+    Get Element States                              //*[@id='continue-shopping']    contains    enabled
+    Get Text                                        //*[@id='continue-shopping']    ==    Continue Shopping
+    Wait For Elements State                         //*[@id='checkout']    visible
+    Get Element States                              //*[@id='checkout']    contains    enabled
+    Get Text                                        //*[@id='checkout']    ==    Checkout

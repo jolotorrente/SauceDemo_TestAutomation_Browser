@@ -33,11 +33,12 @@ Initiate Checkout
 
 # This keyword Validates the Gross Total of Products added to Cart by Adding the Prices of each Product
 Validate Cart
-    Wait For Elements State                       //*[@id='checkout' and text()='Checkout']    visible
+    Wait For Elements State                       (//*[@id='checkout' and text()='Checkout'])    visible
     ${cart_count}=    Get Element Count            //*[@class='inventory_item_price']
     ${total}=    Set Variable                     0
     FOR    ${index}    IN RANGE    1    ${cart_count + 1}
-        ${price_text}=    Get Text                xpath:(//*[@class='inventory_item_price'])[${index}]
+        # Parentheses added to XPath to handle Strict Mode indexing
+        ${price_text}=    Get Text                (//*[@class='inventory_item_price'])[${index}]
         ${price}=    Evaluate                     float(${price_text.replace('$','')})
         ${total}=    Evaluate                     ${total} + ${price}
         Set Test Variable                         ${total}
@@ -48,16 +49,16 @@ Validate Cart
 # This keyword Completes the Checkout form with random names and postal code from a List Variable
 Supply User Information
     [Arguments]    ${firstname}    ${lastname}    ${postalcode}
-    Wait For Elements State                       //*[@class='title' and text()='Checkout: Your Information']    visible
-    ${firstname}=    Evaluate                     random.choice(@{FIRST_NAME})    random
-    Set Test Variable                             ${firstname}
-    ${lastname}=    Evaluate                      random.choice(@{LAST_NAME})     random
-    Set Test Variable                             ${lastname}
-    ${postalcode}=    Evaluate                    random.choice(@{POSTAL_CODE})   random
-    Set Test Variable                             ${postalcode}
-    Fill Text                                    //*[@id='first-name']    ${firstname}
-    Fill Text                                    //*[@id='last-name']     ${lastname}
-    Fill Text                                    //*[@id='postal-code']   ${postalcode}
+    Wait For Elements State                         //*[@class='title' and text()='Checkout: Your Information']    visible
+    ${firstname}=    Evaluate                       random.choice(@{FIRST_NAME})    random
+    Set Test Variable                               ${firstname}
+    ${lastname}=    Evaluate                        random.choice(@{LAST_NAME})     random
+    Set Test Variable                               ${lastname}
+    ${postalcode}=    Evaluate                      random.choice(@{POSTAL_CODE})   random
+    Set Test Variable                               ${postalcode}
+    Fill Text                                       id=first-name    ${firstname}
+    Fill Text                                       id=last-name     ${lastname}
+    Fill Text                                       id=postal-code   ${postalcode}
     IF    '${firstname}' != '' and '${lastname}' != '' and '${postalcode}' != ''
         Validate Complete User Information
     ELSE
@@ -67,24 +68,24 @@ Supply User Information
 
 # This keyword Validates User Information supplied and Completes the Step 1: User Information of Checkout
 Validate Complete User Information
-    ${textfirst}=    Get Property                 //*[@id='first-name']    value
+    ${textfirst}=    Get Property                 id=first-name    value
     Should Be Equal As Strings                    ${firstname}    ${textfirst}
-    ${textlast}=    Get Property                  //*[@id='last-name']     value
+    ${textlast}=    Get Property                  id=last-name     value
     Should Be Equal As Strings                    ${lastname}     ${textlast}
-    ${textpostal}=    Get Property                //*[@id='postal-code']   value
+    ${textpostal}=    Get Property                id=postal-code   value
     Should Be Equal As Strings                    ${postalcode}   ${textpostal}
     Sleep    1s
-    Click                                      //*[@id='continue']
+        Click                                     id=continue
 
 
 # This keyword Validates error handling on supplied User Information
 Validate Incomplete User Information Error
-    Click                                      //*[@id='continue']
+    Click                                       id=continue
     ${actual_error}=    Get Text                //*[@class='error-message-container error']
     FOR    ${expected_error}    IN    @{USERINFOCHECKOUTERROR}
         IF    '${actual_error}' == '${expected_error}'
-            Element Should Be Visible           //*[@class='error-message-container error']
-            Element Should Contain              //*[@class='error-message-container error']    ${expected_error}
+            Wait For Elements State             //*[@class='error-message-container error']    visible
+            Get Text                            //*[@class='error-message-container error']    contains    ${expected_error}
             ${matched}=    Set Variable         ${True}
             User Logout
             Pass Execution                     Error Occurred: ${actual_error} Has Been Validated. Expected Error In Negative Tests
@@ -116,12 +117,12 @@ Validate User Information Page Elements
     Open Cart
     Initiate Checkout
     @{userinfo_elem}=    Create List
-    ...    //*[@id='first-name']
-    ...    //*[@id='last-name']
-    ...    //*[@id='postal-code']
+    ...    id=first-name
+    ...    id=last-name
+    ...    id=postal-code
     FOR    ${elem}    IN    @{userinfo_elem}
         Wait For Elements State                ${elem}    visible
-        Element Should Be Enabled              ${elem}
+        Get Element States                     ${elem}    contains    enabled
         ${elemvalue}=    Get Property          ${elem}    value
         Should Be Empty                        ${elemvalue}
     END
@@ -131,7 +132,7 @@ Validate User Information Page Elements
     Should Be Equal                            ${lname_label}         Last Name
     ${zip_label}=    Get Attribute             ${userinfo_elem}[2]    placeholder
     Should Be Equal                            ${zip_label}           Zip/Postal Code
-    Element Should Be Visible                  //*[@class='title']
-    Element Text Should Be                     //*[@class='title']    Checkout: Your Information
-    Element Should Be Visible                  //*[@id='cancel']
-    Element Text Should Be                     //*[@id='cancel']    Cancel
+    Wait For Elements State                    //*[@class='title']    visible
+    Get Text                                   //*[@class='title']    ==    Checkout: Your Information
+    Wait For Elements State                    id=cancel      visible
+    Get Text                                   id=cancel     ==    Cancel

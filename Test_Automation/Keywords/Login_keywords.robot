@@ -47,13 +47,13 @@ User Failed Login
 # Validates that user login was NOT successful
 Validate Failed Login
     # Refactor: Wait for visibility first to ensure the element exists before fetching text
-    Wait For Elements State         css=.error-message-container error    visible
-    ${actualerror}=  Get Text       css=.error-message-container error
+    Wait For Elements State         css=.error-message-container.error    visible
+    ${actualerror}=  Get Text       css=.error-message-container.error
     # Use BuiltIn 'Should Contain Any' if your LOGIN_ERRORS is a list of expected strings
     # This replaces the entire manual IF/ELSE loop logic
     @{expectederror_list}=    Get Dictionary Values    ${LOGIN_ERRORS}
     Should Contain Any    ${actualerror}    @{expectederror_list}
-    ...    msg=Error Flow Not Yet Covered: ${actualerror}
+    ...  msg=Error Flow Not Yet Covered: ${actualerror}
     Set Test Message    Error Occurred: ${actualerror}
 
 

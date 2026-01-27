@@ -44,7 +44,7 @@ User Logout
 
 # This keyword Displays the Shopping Cart
 Open Cart
-    Wait For Elements State                         css=.app_logo    stable    timeout=5se
+    Wait For Elements State                         css=.app_logo    stable    timeout=5s
     Click                                           id=shopping_cart_container
     Wait For Elements State                         //*[@class='title' and text()='Your Cart']    visible    timeout=5s
 
