@@ -8,6 +8,7 @@ Framework: Keyword-Driven
 Repository: GitHub
 
 FRAMEWORK STRUCTURE:
+
 Resources (Feature-Based Compilation of Keyword-Driven Approach)
  - Keywords
  - Variables
