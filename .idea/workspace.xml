@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c7775f4f-f05b-4f5a-abf4-4a9acebdb4cd" name="Changes" comment="Detailed Changes:&#10;1. Restructured Folder / Directory to Best Practice&#10;2. Added Reusable Keywords and Test Cases for Product Sort">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_Automation/Resources/Inventory_keywords.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Resources/Inventory_keywords.robot" afterDir="false" />
-    </list>
+    <list default="true" id="c7775f4f-f05b-4f5a-abf4-4a9acebdb4cd" name="Changes" comment="Detailed Changes:&#10;1. Restructured Folder / Directory to Best Practice&#10;2. Added Reusable Keywords and Test Cases for Product Sort" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -123,7 +120,31 @@
       <option name="project" value="LOCAL" />
       <updated>1769789218365</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Detailed Changes:&#10;1. Restructured Folder / Directory to Best Practice&#10;2. Added Reusable Keywords and Test Cases for Product Sort">
+      <option name="closed" value="true" />
+      <created>1769789241092</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1769789241092</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Detailed Changes:&#10;1. Restructured Folder / Directory to Best Practice&#10;2. Added Reusable Keywords and Test Cases for Product Sort">
+      <option name="closed" value="true" />
+      <created>1769789421397</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1769789421397</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Detailed Changes:&#10;1. Restructured Folder / Directory to Best Practice&#10;2. Added Reusable Keywords and Test Cases for Product Sort">
+      <option name="closed" value="true" />
+      <created>1769789498816</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1769789498816</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
