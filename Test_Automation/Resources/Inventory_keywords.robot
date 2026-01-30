@@ -3,12 +3,11 @@ Library         Browser
 Library         String
 Library         Collections
 
-### Resource List of Keywords ###
-Resource        ../Keywords/Common_keywords.robot
+### Resource List of Resources ###
+Resource        ../Resources/Common_keywords.robot
 
 ### Resource List of Variables ###
-Resource        ../Variables/Login_variables.robot
-Resource        ../Variables/Inventory_variables.robot
+Resource        ../Resources/Variables/Login_variables.robot
 
 ### Documentation ###
 Documentation   This Keyword Robot File is a compilation Inventory functionalities
@@ -19,9 +18,8 @@ Documentation   This Keyword Robot File is a compilation Inventory functionaliti
 
 *** Keywords ***
 ###################################################
-##  Inventory / Shopping Page Component Keywords ##
+##  Inventory / Shopping Page Component Resources ##
 ###################################################
-
 
 
 # This keyword Asserts the Inventory Page Elements

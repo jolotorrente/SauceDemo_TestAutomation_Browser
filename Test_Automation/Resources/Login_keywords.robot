@@ -2,11 +2,11 @@
 Library         Browser
 Library         String
 
-### Resource List of Keywords ###
-Resource        ../Keywords/Common_keywords.robot
+### Resource List of Resources ###
+Resource        ../Resources/Common_keywords.robot
 
 ### Resource List of Variables ###
-Resource        ../Variables/Login_variables.robot
+Resource        ../Resources/Variables/Login_variables.robot
 
 ### Documentation ###
 Documentation   This Keyword Robot File is a compilation Login functionality
@@ -15,7 +15,7 @@ Documentation   This Keyword Robot File is a compilation Login functionality
 
 *** Keywords ***
 ##############################
-## Login Component Keywords ##
+## Login Component Resources ##
 ##############################
 
 # Validates that user login was successful

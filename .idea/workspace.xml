@@ -2,21 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7775f4f-f05b-4f5a-abf4-4a9acebdb4cd" name="Changes" comment="Detailed Changes:&#10;Conversion from Puppeteer to Browser Library (100% Passing Rate on existing Coverage)">
-      <change beforePath="$PROJECT_DIR$/Test_Automation/Keywords/Checkout_keywords.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Keywords/Checkout_keywords.robot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_Automation/Keywords/Global_keywords.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Keywords/Common_keywords.robot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_Automation/Keywords/Inventory_keywords.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Keywords/Inventory_keywords.robot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_Automation/Keywords/Login_keywords.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Keywords/Login_keywords.robot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_Automation/Keywords/Logout_keywords.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Keywords/Logout_keywords.robot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_Automation/Testsuite/API_Testsuite.robot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_Automation/Testsuite/FeatureTestsuite/Checkout.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Testsuite/FeatureTestsuite/Checkout.robot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_Automation/Testsuite/FeatureTestsuite/Inventory.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Testsuite/FeatureTestsuite/Inventory.robot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_Automation/Testsuite/FeatureTestsuite/Login.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Testsuite/FeatureTestsuite/Login.robot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_Automation/Testsuite/FeatureTestsuite/Logout.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Testsuite/FeatureTestsuite/Logout.robot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_Automation/Testsuite/FeatureTestsuite/Performance_Testsuite.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Testsuite/Performance_Testsuite.robot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Automation/Keywords/Checkout_keywords.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Resources/Checkout_keywords.robot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Automation/Keywords/Common_keywords.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Resources/Common_keywords.robot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Automation/Keywords/Inventory_keywords.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Resources/Inventory_keywords.robot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Automation/Keywords/Login_keywords.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Resources/Login_keywords.robot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Automation/Keywords/Logout_keywords.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Resources/Logout_keywords.robot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Automation/Testsuite/FeatureTestsuite/Checkout.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Testsuite/Functional/Checkout.robot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Automation/Testsuite/FeatureTestsuite/Inventory.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Testsuite/Functional/Inventory.robot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Automation/Testsuite/FeatureTestsuite/Login.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Testsuite/Functional/Login.robot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Automation/Testsuite/FeatureTestsuite/Logout.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Testsuite/Functional/Logout.robot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Automation/Testsuite/Performance_Testsuite.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Testsuite/NonFunctional/Performance_Testsuite.robot" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Test_Automation/Testsuite/RegressionTestsuite/End-to-End_Regression.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Testsuite/RegressionTestsuite/End-to-End_Regression.robot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_Automation/Variables/Checkout_variables.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Variables/Checkout_variables.robot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_Automation/Variables/Inventory_variables.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Variables/Inventory_variables.robot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_Automation/Variables/Logout_variables.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Variables/Logout_variables.robot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Automation/Testsuite/Security_Testsuite.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Testsuite/NonFunctional/Security_Testsuite.robot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Automation/Variables/Checkout_variables.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Resources/Variables/Checkout_variables.robot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Automation/Variables/Inventory_variables.robot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Automation/Variables/Login_variables.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Resources/Variables/Login_variables.robot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Automation/Variables/Logout_variables.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Resources/Variables/Logout_variables.robot" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,11 +56,14 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main"
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/jolo_/PycharmProjects/SauceDemo_TestAutomation_Browser"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jolo_\PycharmProjects\SauceDemo_TestAutomation_Browser\Test_Automation\Resources" />
+      <recent name="C:\Users\jolo_\PycharmProjects\SauceDemo_TestAutomation_Browser\Test_Automation\Testsuite\NonFunctional" />
       <recent name="C:\Users\jolo_\PycharmProjects\SauceDemo_TestAutomation_Browser\Test_Automation\Testsuite" />
     </key>
   </component>
@@ -101,7 +106,23 @@
       <option name="project" value="LOCAL" />
       <updated>1769520829517</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Detailed Changes:&#10;Conversion from Puppeteer to Browser Library (100% Passing Rate on existing Coverage)">
+      <option name="closed" value="true" />
+      <created>1769761451948</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1769761451948</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Detailed Changes:&#10;Conversion from Puppeteer to Browser Library (100% Passing Rate on existing Coverage)">
+      <option name="closed" value="true" />
+      <created>1769761492927</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1769761492927</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

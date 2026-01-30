@@ -3,16 +3,16 @@ Library    Browser
 Library    Collections
 Library    String
 
-### Resource List of Keywords ###
-Resource        ../Keywords/Login_keywords.robot
-Resource        ../Keywords/Logout_keywords.robot
+### Resource List of Resources ###
+Resource        ../Resources/Login_keywords.robot
+Resource        ../Resources/Logout_keywords.robot
 
 ### Resource List of Variables ###
-Resource        ../Variables/Login_variables.robot
+Resource        ../Resources/Variables/Login_variables.robot
 
 *** Keywords ***
 ######################################
-## Common Global Component Keywords ##
+## Common Global Component Resources ##
 ######################################
 
 # This keyword Launches the Test Website (saucedemo.com) with defined Browser Settings

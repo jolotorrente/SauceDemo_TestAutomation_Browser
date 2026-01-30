@@ -3,7 +3,7 @@
 ${TEST_URL}                         https://www.saucedemo.com/
 ${BROWSER}                          chromium
 ${HEADLESS}                         False
-${SCREENSHOT_LOGIN_DIR}             C:/Test_Automation_Compilation/SauceDemo_Test_Automation_Browser/reports/screenshots/Login
+${SCREENSHOT_LOGIN_DIR}             C:/Users/jolo_/PycharmProjects/SauceDemo_TestAutomation_Puppeteer/Test_Automation/reports/creenshots/Login
 
 ###########################
 ## USER TYPES AND INPUTS ##

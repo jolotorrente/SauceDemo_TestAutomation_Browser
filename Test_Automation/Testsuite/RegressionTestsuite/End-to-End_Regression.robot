@@ -1,15 +1,15 @@
 *** Settings ***
 Library         Browser
 
-### Resource List of Keywords ###
-Resource        ../../Keywords/Common_keywords.robot
-Resource        ../../Keywords/Login_keywords.robot
-Resource        ../../Keywords/Inventory_keywords.robot
-Resource        ../../Keywords/Checkout_keywords.robot
+### Resource List of Resources ###
+Resource        ../../Resources/Common_keywords.robot
+Resource        ../../Resources/Login_keywords.robot
+Resource        ../../Resources/Inventory_keywords.robot
+Resource        ../../Resources/Checkout_keywords.robot
 
 ### Resource List of Variables ###
-Resource        ../../Variables/Login_variables.robot
-Resource        ../../Variables/Checkout_variables.robot
+Resource        ../../Resources/Variables/Login_variables.robot
+Resource        ../../Resources/Variables/Checkout_variables.robot
 
 ### Documentation ###
 Documentation   This test suite verifies multiple functionalities combined resulting to End-to-End Scenarios

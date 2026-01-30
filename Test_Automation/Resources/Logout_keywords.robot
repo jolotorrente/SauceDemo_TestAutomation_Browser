@@ -2,16 +2,16 @@
 Library         Browser
 Library         String
 
-### Resource List of Keywords ###
-Resource        ../Keywords/Common_keywords.robot
+### Resource List of Resources ###
+Resource        ../Resources/Common_keywords.robot
 
 ### Resource List of Variables ###
-Resource        ../Variables/Login_variables.robot
-Resource        ../Variables/Logout_variables.robot
+Resource        ../Resources/Variables/Login_variables.robot
+Resource        ../Resources/Variables/Logout_variables.robot
 
 *** Keywords ***
 ###############################
-## Logout Component Keywords ##
+## Logout Component Resources ##
 ###############################
 
 # This keyword Validates Logout Session on the Test Website

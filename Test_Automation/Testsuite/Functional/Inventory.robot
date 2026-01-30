@@ -1,13 +1,13 @@
 *** Settings ***
 Library         Browser
 
-### Resource List of Keywords ###
-Resource        ../../Keywords/Common_keywords.robot
-Resource        ../../Keywords/Login_keywords.robot
-Resource        ../../Keywords/Inventory_keywords.robot
+### Resource List of Resources ###
+Resource        ../../Resources/Common_keywords.robot
+Resource        ../../Resources/Login_keywords.robot
+Resource        ../../Resources/Inventory_keywords.robot
 
 ### Resource List of Variables ###
-Resource        ../../Variables/Login_variables.robot
+Resource        ../../Resources/Variables/Login_variables.robot
 
 ### Documentation ###
 Documentation   This test suite verifies the Add and Remove of Products to Shopping Cart functionality

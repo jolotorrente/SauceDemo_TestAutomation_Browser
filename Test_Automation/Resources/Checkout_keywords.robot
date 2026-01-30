@@ -2,16 +2,16 @@
 Library         Browser
 Library         String
 
-### Resource List of Keywords ###
-Resource        ../Keywords/Common_keywords.robot
-Resource        ../Keywords/Inventory_keywords.robot
+### Resource List of Resources ###
+Resource        ../Resources/Common_keywords.robot
+Resource        ../Resources/Inventory_keywords.robot
 
 ### Resource List of Variables ###
-Resource        ../Variables/Checkout_variables.robot
+Resource        ../Resources/Variables/Checkout_variables.robot
 
 *** Keywords ***
 ##################################
-##  Checkout Component Keywords ##
+##  Checkout Component Resources ##
 ##################################
 
 # This Keyword is combined Keyword to Complete Checkout Process
@@ -26,22 +26,22 @@ Checkout Cart
 
 # This Keyword Initiates the 1st Step to Checkout
 Initiate Checkout
-    ${checkout_btn}=    Set Variable               //*[@id='checkout' and text()='Checkout']
-    Scroll To                                   ${checkout_btn}
-    Click                                      ${checkout_btn}
+    ${checkout_btn}=  Set Variable                  //*[@id='checkout' and text()='Checkout']
+    Scroll To                                       ${checkout_btn}
+    Click                                           ${checkout_btn}
 
 
 # This keyword Validates the Gross Total of Products added to Cart by Adding the Prices of each Product
 Validate Cart
-    Wait For Elements State                       (//*[@id='checkout' and text()='Checkout'])    visible
-    ${cart_count}=    Get Element Count            //*[@class='inventory_item_price']
-    ${total}=    Set Variable                     0
-    FOR    ${index}    IN RANGE    1    ${cart_count + 1}
+    Wait For Elements State                         (//*[@id='checkout' and text()='Checkout'])    visible
+    ${cart_count}=  Get Element Count               //*[@class='inventory_item_price']
+    ${total}=    Set Variable                       0
+    FOR  ${index}  IN RANGE  1  ${cart_count + 1}
         # Parentheses added to XPath to handle Strict Mode indexing
-        ${price_text}=    Get Text                (//*[@class='inventory_item_price'])[${index}]
-        ${price}=    Evaluate                     float(${price_text.replace('$','')})
-        ${total}=    Evaluate                     ${total} + ${price}
-        Set Test Variable                         ${total}
+        ${price_text}=  Get Text                    (//*[@class='inventory_item_price'])[${index}]
+        ${price}=  Evaluate                         float(${price_text.replace('$','')})
+        ${total}=  Evaluate                         ${total} + ${price}
+        Set Test Variable                           ${total}
     END
     Sleep    1s
 
@@ -50,16 +50,16 @@ Validate Cart
 Supply User Information
     [Arguments]    ${firstname}    ${lastname}    ${postalcode}
     Wait For Elements State                         //*[@class='title' and text()='Checkout: Your Information']    visible
-    ${firstname}=    Evaluate                       random.choice(@{FIRST_NAME})    random
+    ${firstname}=  Evaluate                         random.choice(@{FIRST_NAME})    random
     Set Test Variable                               ${firstname}
-    ${lastname}=    Evaluate                        random.choice(@{LAST_NAME})     random
+    ${lastname}=  Evaluate                          random.choice(@{LAST_NAME})     random
     Set Test Variable                               ${lastname}
-    ${postalcode}=    Evaluate                      random.choice(@{POSTAL_CODE})   random
+    ${postalcode}=  Evaluate                        random.choice(@{POSTAL_CODE})   random
     Set Test Variable                               ${postalcode}
     Fill Text                                       id=first-name    ${firstname}
     Fill Text                                       id=last-name     ${lastname}
     Fill Text                                       id=postal-code   ${postalcode}
-    IF    '${firstname}' != '' and '${lastname}' != '' and '${postalcode}' != ''
+    IF  '${firstname}' != '' and '${lastname}' != '' and '${postalcode}' != ''
         Validate Complete User Information
     ELSE
         Validate Incomplete User Information Error
@@ -68,11 +68,11 @@ Supply User Information
 
 # This keyword Validates User Information supplied and Completes the Step 1: User Information of Checkout
 Validate Complete User Information
-    ${textfirst}=    Get Property                   id=first-name    value
+    ${textfirst}=  Get Property                     id=first-name    value
     Should Be Equal As Strings                      ${firstname}    ${textfirst}
-    ${textlast}=    Get Property                    id=last-name     value
+    ${textlast}=  Get Property                      id=last-name     value
     Should Be Equal As Strings                      ${lastname}     ${textlast}
-    ${textpostal}=    Get Property                  id=postal-code   value
+    ${textpostal}=  Get Property                    id=postal-code   value
     Should Be Equal As Strings                      ${postalcode}   ${textpostal}
     Sleep    1s
     Click                                           id=continue
