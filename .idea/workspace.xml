@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c7775f4f-f05b-4f5a-abf4-4a9acebdb4cd" name="Changes" comment="Detailed Changes:&#10;Conversion from Puppeteer to Browser Library (100% Passing Rate on existing Coverage)">
+      <change beforePath="$PROJECT_DIR$/Test_Automation/Keywords/Checkout_keywords.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Keywords/Checkout_keywords.robot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Automation/Keywords/Global_keywords.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Keywords/Common_keywords.robot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Automation/Keywords/Inventory_keywords.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Keywords/Inventory_keywords.robot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Automation/Keywords/Login_keywords.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Keywords/Login_keywords.robot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Automation/Keywords/Logout_keywords.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Keywords/Logout_keywords.robot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Automation/Testsuite/API_Testsuite.robot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Automation/Testsuite/FeatureTestsuite/Checkout.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Testsuite/FeatureTestsuite/Checkout.robot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Automation/Testsuite/FeatureTestsuite/Inventory.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Testsuite/FeatureTestsuite/Inventory.robot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Automation/Testsuite/FeatureTestsuite/Login.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Testsuite/FeatureTestsuite/Login.robot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Automation/Testsuite/FeatureTestsuite/Logout.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Testsuite/FeatureTestsuite/Logout.robot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Automation/Testsuite/FeatureTestsuite/Performance_Testsuite.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Testsuite/Performance_Testsuite.robot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Automation/Testsuite/RegressionTestsuite/End-to-End_Regression.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Testsuite/RegressionTestsuite/End-to-End_Regression.robot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Automation/Variables/Checkout_variables.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Variables/Checkout_variables.robot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Automation/Variables/Inventory_variables.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Variables/Inventory_variables.robot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Automation/Variables/Logout_variables.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Automation/Variables/Logout_variables.robot" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;jolotorrente&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/jolotorrente/SauceDemo_TestAutomation_Browser.git&quot;,
+    &quot;accountId&quot;: &quot;d719cbeb-7c28-4190-8844-b0a0cf3e1357&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="38knuihgDGRsTv9Q3Ibj1LM67pW" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jolo_\PycharmProjects\SauceDemo_TestAutomation_Browser\Test_Automation\Testsuite" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-ca5e2b39c7df-6e1f45a539f7-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.29346.308" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c7775f4f-f05b-4f5a-abf4-4a9acebdb4cd" name="Changes" comment="" />
+      <created>1769352660365</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1769352660365</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Test">
+      <option name="closed" value="true" />
+      <created>1769352784417</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1769352784417</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Detailed Changes:&#10;Conversion from Puppeteer to Browser Library&#10;Improvements using Browser Library">
+      <option name="closed" value="true" />
+      <created>1769408327853</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1769408327853</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Detailed Changes:&#10;Conversion from Puppeteer to Browser Library (100% Passing Rate on existing Coverage)">
+      <option name="closed" value="true" />
+      <created>1769520829517</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1769520829517</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Test" />
+    <MESSAGE value="Detailed Changes:&#10;Conversion from Puppeteer to Browser Library&#10;Improvements using Browser Library" />
+    <MESSAGE value="Detailed Changes:&#10;Conversion from Puppeteer to Browser Library (100% Passing Rate on existing Coverage)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Detailed Changes:&#10;Conversion from Puppeteer to Browser Library (100% Passing Rate on existing Coverage)" />
+  </component>
+</project>
