@@ -2,7 +2,7 @@
 Library         Browser
 
 ### Resource List of Keywords ###
-Resource        ../../Keywords/Global_keywords.robot
+Resource        ../../Keywords/Common_keywords.robot
 Resource        ../../Keywords/Login_keywords.robot
 
 ### Resource List of Variables ###
@@ -26,7 +26,7 @@ Login 01 - Login using valid Username and Password
     User Logout
 
 Login 02 - Negative Test: Login using valid Username Invalid Password
-    [Tags]  Medium  Smoke
+    [Tags]  High    Smoke
     User Failed Login           ${USERNAME}         ${INVALIDPASSWORD}
 
 Login 03 - Negative Test: Login using Locked Out User

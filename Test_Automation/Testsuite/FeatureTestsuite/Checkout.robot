@@ -2,7 +2,7 @@
 Library         Browser
 
 ### Resource List of Keywords ###
-Resource        ../../Keywords/Global_keywords.robot
+Resource        ../../Keywords/Common_keywords.robot
 Resource        ../../Keywords/Login_keywords.robot
 Resource        ../../Keywords/Inventory_keywords.robot
 Resource        ../../Keywords/Checkout_keywords.robot
@@ -23,7 +23,7 @@ Test Teardown   Close Browser
 
 *** Test Cases ***
 Checkout 01 - Checkout Products added to Cart
-    [Tags]  High    Regression
+    [Tags]  High    Regression      Smoke
     User Login                  ${USERNAME}         ${PASSWORD}
     Add Random Product to Cart
     Checkout Cart               ${FIRST_NAME}       ${LAST_NAME}        ${POSTAL_CODE}

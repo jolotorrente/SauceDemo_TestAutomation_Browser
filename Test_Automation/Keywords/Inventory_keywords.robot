@@ -4,7 +4,7 @@ Library         String
 Library         Collections
 
 ### Resource List of Keywords ###
-Resource        ../Keywords/Global_keywords.robot
+Resource        ../Keywords/Common_keywords.robot
 
 ### Resource List of Variables ###
 Resource        ../Variables/Login_variables.robot
@@ -57,7 +57,7 @@ Validate Product Elements on Product View
 # This keyword Returns the total number of products currently displayed on the inventory page
 Get Inventory Product Count
     Wait For Elements State                         //*[@class='inventory_item'][1]    visible
-    ${productcounter}=    Get Element Count          //*[@class='inventory_item']
+    ${productcounter}=  Get Element Count           //*[@class='inventory_item']
     RETURN    ${productcounter}
 
 
@@ -72,8 +72,8 @@ Generate Random Quantity
 # This keyword Returns a list of unique random indexes for selecting products
 Generate Random Indexes
     [Arguments]    ${total_products}    ${quantity}
-    ${all_indexes}=     Evaluate    list(range(1, ${total_products}+1))
-    ${random_indexes}=  Evaluate    random.sample(${all_indexes}, ${quantity})    random
+    ${all_indexes}=     Evaluate                    list(range(1, ${total_products}+1))
+    ${random_indexes}=  Evaluate                    random.sample(${all_indexes}, ${quantity})    random
     Set Test Variable   ${random_indexes}
     RETURN    ${random_indexes}
 
@@ -81,8 +81,8 @@ Generate Random Indexes
 # This keyword Returns a random index for cart items
 Generate Random Cart Index
     [Arguments]    ${total_in_cart}
-    ${all_indexes}=     Evaluate    list(range(1, ${total_in_cart}+1))
-    ${random_index}=    Evaluate    random.choice(${all_indexes})    random
+    ${all_indexes}=  Evaluate                       list(range(1, ${total_in_cart}+1))
+    ${random_index}=  Evaluate                      random.choice(${all_indexes})    random
     RETURN    ${random_index}
 
 
@@ -99,7 +99,7 @@ Add Random Product to Cart
     ${rdmquantity}=       Generate Random Quantity    ${productcounter}
     Set Test Variable     ${rdmquantity}
     ${random_indexes}=    Generate Random Indexes     ${productcounter}    ${rdmquantity}
-    FOR    ${index}    IN    @{random_indexes}
+    FOR  ${index}  IN  @{random_indexes}
         Click And Validate Product    ${index}
     END
     Validate Cart Badge
@@ -132,7 +132,7 @@ Remove Random Product from Shopping Cart
 # This keyword Removes ALL Product/s from the Shopping Cart safely
 Remove All Products from Shopping Cart
     Open Cart
-    ${cart_count}=    Get Cart Product Count
+    ${cart_count}=  Get Cart Product Count
     IF    ${cart_count} > 0
         FOR    ${index}    IN RANGE    ${cart_count}
             Click And Validate Removal    1
@@ -200,9 +200,9 @@ Remove Random Product from Shopping Page
 # This keyword Validates Cart Quantity
 Validate Cart Badge
     Wait For Elements State                         //*[@class='shopping_cart_link']    visible
-    ${cartstatus}=    Run Keyword And Return Status
+    ${cartstatus}=  Run Keyword And Return Status
     ...    Wait For Elements State                  //*[@class='shopping_cart_badge']    visible    timeout=1s
-    IF    ${cartstatus}
+    IF  ${cartstatus}
         ${cartcounter}=    Get Text                 //*[@class='shopping_cart_badge']
         Should Be Equal As Integers                 ${cartcounter}    ${rdmquantity}
     ELSE
@@ -220,9 +220,9 @@ Validate Shopping Cart Default State
     Get Text                                        //*[@class='cart_quantity_label']    ==    QTY
     Wait For Elements State                         //*[@class='cart_desc_label']    visible
     Get Text                                        //*[@class='cart_desc_label']    ==    Description
-    Wait For Elements State                         //*[@id='continue-shopping']    visible
-    Get Element States                              //*[@id='continue-shopping']    contains    enabled
-    Get Text                                        //*[@id='continue-shopping']    ==    Continue Shopping
-    Wait For Elements State                         //*[@id='checkout']    visible
-    Get Element States                              //*[@id='checkout']    contains    enabled
-    Get Text                                        //*[@id='checkout']    ==    Checkout
+    Wait For Elements State                         id=continue-shopping    visible
+    Get Element States                              id=continue-shopping    contains    enabled
+    Get Text                                        id=continue-shopping    ==    Continue Shopping
+    Wait For Elements State                         id=checkout    visible
+    Get Element States                              id=checkout    contains    enabled
+    Get Text                                        id=checkout    ==    Checkout

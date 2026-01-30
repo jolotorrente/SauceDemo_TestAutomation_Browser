@@ -2,6 +2,7 @@
 Library         Browser
 
 ### Resource List of Keywords ###
+Resource        ../../Keywords/Common_keywords.robot
 Resource        ../../Keywords/Login_keywords.robot
 Resource        ../../Keywords/Inventory_keywords.robot
 

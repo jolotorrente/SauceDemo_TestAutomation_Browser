@@ -2,7 +2,7 @@
 Library         Browser
 
 ### Resource List of Keywords ###
-Resource        ../../Keywords/Global_keywords.robot
+Resource        ../../Keywords/Common_keywords.robot
 Resource        ../../Keywords/Login_keywords.robot
 Resource        ../../Keywords/Logout_keywords.robot
 

@@ -1,7 +1,5 @@
 *** Variables ***
 #############################
-${SCREENSHOT_CHECKOUT_DIR}      C:/Test_Automation_Compilation/SauceDemo_Test_Automation_Browser/reports/screenshots/Checkout
-
 #Variables User Information for Checkout: Your Information page
 @{FIRST_NAME}                   Leni    Bam    Rodrigo    Bongbong    Raffy
 @{LAST_NAME}                    Robredo    Aquino    Duterte    Marcos    Tulfo

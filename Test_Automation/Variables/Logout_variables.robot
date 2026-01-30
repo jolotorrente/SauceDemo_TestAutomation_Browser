@@ -1,6 +1,5 @@
 *** Variables ***
 #############################
-${SCREENSHOT_LOGOUT_DIR}            C:/Test_Automation_Compilation/SauceDemo_Test_Automation_Browser/reports/screenshots/Logout
 ${ERROR_LOCATOR}                    //*[@class='error-message-container error']
 
 ######################################
