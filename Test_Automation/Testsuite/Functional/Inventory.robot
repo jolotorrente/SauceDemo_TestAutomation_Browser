@@ -73,3 +73,27 @@ Inventory 08 - Navigate Back to Shopping from Cart
     Open Cart
     Return to Shopping
     User Logout
+
+Inventory 09 - Sorts Products using Product Name in Ascending Order
+    [Tags]  Medium
+    User Login                  ${USERNAME}             ${PASSWORD}
+    Sort by Ascending Product Name
+    User Logout
+
+Inventory 10 - Sorts Products using Product Name in Descending Order
+    [Tags]  Medium
+    User Login                  ${USERNAME}             ${PASSWORD}
+    Sort by Descending Product Name
+    User Logout
+
+Inventory 11 - Sorts Products using Product Price from Lowest to Highest
+    [Tags]  Medium
+    User Login                  ${USERNAME}             ${PASSWORD}
+    Sort by Lowest Price
+    User Logout
+
+Inventory 12 - Sorts Products using Product Price from Highest to Lowest
+    [Tags]  Medium
+    User Login                  ${USERNAME}             ${PASSWORD}
+    Sort by Highest Price
+    User Logout

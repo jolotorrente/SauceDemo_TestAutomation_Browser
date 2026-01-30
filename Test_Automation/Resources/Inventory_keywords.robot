@@ -224,3 +224,94 @@ Validate Shopping Cart Default State
     Wait For Elements State                         id=checkout    visible
     Get Element States                              id=checkout    contains    enabled
     Get Text                                        id=checkout    ==    Checkout
+
+# This keyword Opens the Sort Menu
+Open Sort Menu
+    Click                                           //*[@class='product_sort_container']
+    Wait For Elements State                         //*[@class='product_sort_container']    visible
+
+
+# This keyword Sorts the Products in Ascending Order by Name
+Sort by Ascending Product Name
+    Open Sort Menu
+    Select Options By                               //*[@class='product_sort_container']    value    az
+    Wait For Elements State                         //*[@class='inventory_item'][1]    visible
+    Validate Inventory Sorted by Name Ascending
+
+
+# This keyword Sorts the Products in Descending Order by Name
+Sort by Descending Product Name
+    Open Sort Menu
+    Select Options By                               //*[@class='product_sort_container']    value    za
+    Wait For Elements State                         //*[@class='inventory_item'][1]    visible
+    Validate Inventory Sorted by Name Descending
+
+
+# This keyword Sorts the Products in Ascending Order by Price
+Sort By Lowest Price
+    Open Sort Menu
+    Select Options By                               //*[@class='product_sort_container']    value    lohi
+    Wait For Elements State                         //*[@class='inventory_item'][1]    visible
+    Validate Inventory Sorted by Price Ascending
+
+
+# This keyword Sorts the Products in Descending Order by Price
+Sort by Highest Price
+    Open Sort Menu
+    Select Options By                               //*[@class='product_sort_container']    value    hilo
+    Wait For Elements State                         //*[@class='inventory_item'][1]    visible
+    Validate Inventory Sorted by Price Descending
+
+
+Get Inventory Product Names
+    Wait For Elements State                         (//*[@class='inventory_item_name '])[1]    visible
+    @{elements}=  Get Elements                      //*[@class='inventory_item_name ']
+    @{names}=  Create List
+    FOR  ${el}  IN  @{elements}
+        ${text}=  Get Text                          ${el}
+        Append To List                              ${names}    ${text}
+    END
+    RETURN    ${names}
+
+
+Get Inventory Product Prices
+    Wait For Elements State                         (//*[@class='inventory_item_price'])[1]    visible
+    @{elements}=  Get Elements                      //*[@class='inventory_item_price']
+    @{prices}=  Create List
+    FOR  ${el}  IN  @{elements}
+        ${raw}=  Get Text                           ${el}
+        ${clean}=  Replace String                   ${raw}    $    ${EMPTY}
+        ${price}=  Convert To Number                ${clean}
+        Append To List                              ${prices}    ${price}
+    END
+    RETURN    ${prices}
+
+
+Validate Inventory Sorted by Name Ascending
+    ${ui_names}=  Get Inventory Product Names
+    ${expected}=  Copy List                         ${ui_names}
+    Sort List                                       ${expected}
+    Lists Should Be Equal                           ${ui_names}    ${expected}
+
+
+Validate Inventory Sorted by Name Descending
+    ${ui_names}=  Get Inventory Product Names
+    ${expected}=  Copy List                         ${ui_names}
+    Sort List                                       ${expected}
+    Reverse List                                    ${expected}
+    Lists Should Be Equal                           ${ui_names}    ${expected}
+
+
+Validate Inventory Sorted by Price Ascending
+    ${ui_prices}=  Get Inventory Product Prices
+    ${expected}=  Copy List                         ${ui_prices}
+    Sort List                                       ${expected}
+    Lists Should Be Equal                           ${ui_prices}    ${expected}
+
+
+Validate Inventory Sorted by Price Descending
+    ${ui_prices}=  Get Inventory Product Prices
+    ${expected}=  Copy List                         ${ui_prices}
+    Sort List                                       ${expected}
+    Reverse List                                    ${expected}
+    Lists Should Be Equal                           ${ui_prices}    ${expected}
