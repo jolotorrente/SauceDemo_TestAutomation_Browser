@@ -23,6 +23,8 @@ Testsuites
    - Checkout
  - Non-Functional
 
+LIMITATION:
+Saucedemo does not APIs therefore, API Tests are out-of-scope on this sample Test Automation Coverage
 
 DOCUMENTATION:
 Each Robot Framework test file (`.robot`) contains its own embedded documentation using the `Documentation` setting.  
