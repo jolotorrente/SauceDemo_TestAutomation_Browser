@@ -1,20 +1,24 @@
-GitHub - jolotorrente/Test_Automation using Robot Framework | Puppeteer Library
+GitHub - jolotorrente/Test_Automation using Robot Framework | Browser Library
 (Work in Progress)
 
 Subject for Test Automation: saucedemo.com
 Type of Website: E-Commerce
 
-Framework: Robot Framework using Puppeteer Library
+Framework: Robot Framework using Browser Library
 Repository: GitHub
 
 FRAMEWORK STRUCTURE:
-Keywords (Feature-Based Compilation)
+Resources
+ - Keywords
+ - Variables
 Testsuites
- - Regression
- - API
- - Security
  - Functional
-Variables (Feature-Based Compilation)
+ - Regression
+ - Non-Functional
+   - Security
+   - Performance
+
+
 
 DOCUMENTATION:
 Each Robot Framework test file (`.robot`) contains its own embedded documentation using the `Documentation` setting.  
