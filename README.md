@@ -24,7 +24,7 @@ Testsuites
  - Non-Functional
 
 LIMITATION:
-Saucedemo does not APIs therefore, API Tests are out-of-scope on this sample Test Automation Coverage
+saucedemo.com does not have a public-facing API for its e-commerce functionality, so API tests are not part of this sample automation project.
 
 DOCUMENTATION:
 Each Robot Framework test file (`.robot`) contains its own embedded documentation using the `Documentation` setting.  
