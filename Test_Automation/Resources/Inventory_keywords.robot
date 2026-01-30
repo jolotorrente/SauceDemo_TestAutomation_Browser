@@ -14,7 +14,7 @@ Documentation   This Keyword Robot File is a compilation Inventory functionaliti
 ...             Add and Remove Products
 ...             Cart Interactions
 ...             Product View
-...             Product Sort (WIP)
+...             Product Sort
 
 *** Keywords ***
 ###################################################
