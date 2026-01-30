@@ -22,6 +22,8 @@ Testsuites
    - Inventory
    - Checkout
  - Non-Functional
+    - Performance Testing (WIP)
+    - Security Testing (TO DO)
 
 LIMITATION:
 saucedemo.com does not have a public-facing API for its e-commerce functionality, so API tests are not part of this sample automation project.
