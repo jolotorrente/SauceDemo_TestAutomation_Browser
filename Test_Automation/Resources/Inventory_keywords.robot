@@ -24,17 +24,17 @@ Documentation   This Keyword Robot File is a compilation Inventory functionaliti
 
 # This keyword Asserts the Inventory Page Elements
 Validate Inventory Page Elements
-    Wait For Elements State                         //*[@class='app_logo']      visible
-    Get Text                                        //*[@class='app_logo']    ==    Swag Labs
-    Wait For Elements State                         id=shopping_cart_container  visible
-    Get Element States                              id=shopping_cart_container  contains    enabled
-    Wait For Elements State                         id=react-burger-menu-btn    visible
-    Get Element States                              id=react-burger-menu-btn    contains    enabled
-    Wait For Elements State                         //*[@class='title']    visible
-    Get Text                                        //*[@class='title']    ==    Products
-    Wait For Elements State                         //*[@class='product_sort_container']    visible
-    Get Element States                              //*[@class='product_sort_container']    contains    enabled
-    Wait For Elements State                         //*[@class='inventory_list']    visible
+    Wait For Elements State                         css=.app_logo                   visible
+    Get Text                                        css=.app_logo  ==  Swag Labs
+    Wait For Elements State                         id=shopping_cart_container      visible
+    Get Element States                              id=shopping_cart_container      contains    enabled
+    Wait For Elements State                         id=react-burger-menu-btn        visible
+    Get Element States                              id=react-burger-menu-btn        contains    enabled
+    Wait For Elements State                         css=.title                      visible
+    Get Text                                        css=.title  ==  Products
+    Wait For Elements State                         css=.product_sort_container     visible
+    Get Element States                              css=.product_sort_container     contains    enabled
+    Wait For Elements State                         css=.inventory_list             visible
 
 
 # This keyword Asserts Product Elements on Product View
@@ -46,7 +46,7 @@ Validate Product Elements on Product View
         ${productname}=    Get Text                 //*[@class='inventory_item'][${index}]//*[@class='inventory_item_description']//*[@class='inventory_item_name ']
         Click                                       //*[@class='inventory_item'][${index}]//*[@class='inventory_item_img']
         Wait For Elements State                     id=back-to-products    visible
-        Wait For Elements State                     //*[@class='inventory_details_img_container']    visible
+        Wait For Elements State                     css=.inventory_details_img_container        visible
         Take Screenshot                             Listed-Product-${index}.png
         Click                                       id=back-to-products
     END
@@ -211,24 +211,24 @@ Validate Cart Badge
 # This keyword Asserts the Shopping Cart Quantity Elements
 Validate Shopping Cart Default State
     Open Cart
-    Wait For Elements State                         //*[@class='bm-burger-button']    visible
-    Wait For Elements State                         //*[@class='title' and text()='Your Cart']    visible
-    Get Text                                        //*[@class='title' and text()='Your Cart']    ==    Your Cart
-    Wait For Elements State                         //*[@class='cart_quantity_label']    visible
-    Get Text                                        //*[@class='cart_quantity_label']    ==    QTY
-    Wait For Elements State                         //*[@class='cart_desc_label']    visible
-    Get Text                                        //*[@class='cart_desc_label']    ==    Description
-    Wait For Elements State                         id=continue-shopping    visible
-    Get Element States                              id=continue-shopping    contains    enabled
-    Get Text                                        id=continue-shopping    ==    Continue Shopping
-    Wait For Elements State                         id=checkout    visible
-    Get Element States                              id=checkout    contains    enabled
-    Get Text                                        id=checkout    ==    Checkout
+    Wait For Elements State                         css=.bm-burger-button                           visible
+    Wait For Elements State                         //*[@class='title' and text()='Your Cart']      visible
+    Get Text                                        //*[@class='title' and text()='Your Cart']  ==  Your Cart
+    Wait For Elements State                         //*[@class='cart_quantity_label']               visible
+    Get Text                                        //*[@class='cart_quantity_label']  ==  QTY
+    Wait For Elements State                         //*[@class='cart_desc_label']                   visible
+    Get Text                                        //*[@class='cart_desc_label']  ==  Description
+    Wait For Elements State                         id=continue-shopping                            visible
+    Get Element States                              id=continue-shopping                            contains    enabled
+    Get Text                                        id=continue-shopping  ==  Continue Shopping
+    Wait For Elements State                         id=checkout                                     visible
+    Get Element States                              id=checkout                                     contains    enabled
+    Get Text                                        id=checkout  ==  Checkout
 
 # This keyword Opens the Sort Menu
 Open Sort Menu
-    Click                                           //*[@class='product_sort_container']
-    Wait For Elements State                         //*[@class='product_sort_container']    visible
+    Click                                           css=.product_sort_container
+    Wait For Elements State                         css=.product_sort_container    visible
 
 
 # This keyword Sorts the Products in Ascending Order by Name
