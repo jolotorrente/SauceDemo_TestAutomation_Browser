@@ -8,13 +8,19 @@ Framework: Keyword-Driven
 Repository: GitHub
 
 FRAMEWORK STRUCTURE:
-Keywords (Feature-Based Compilation of Keyword-Driven Approach)
+Resources (Feature-Based Compilation of Keyword-Driven Approach)
+ - Keywords
+ - Variables
 Testsuites
  - Regression
- - API
- - Security
- - Functional
-Variables (Feature-Based Compilation)
+  - End-to-End Test Cases
+ - Functional (Structured by Feature)
+  - Login
+  - Logout
+  - Inventory
+  - Checkout
+ - Non-Functional
+
 
 DOCUMENTATION:
 Each Robot Framework test file (`.robot`) contains its own embedded documentation using the `Documentation` setting.  
