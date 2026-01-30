@@ -12,6 +12,7 @@ FRAMEWORK STRUCTURE:
 Resources (Feature-Based Compilation of Keyword-Driven Approach)
  - Keywords
  - Variables
+   
 Testsuites
  - Regression
    - End-to-End Test Cases
