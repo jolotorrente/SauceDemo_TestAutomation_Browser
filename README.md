@@ -13,12 +13,12 @@ Resources (Feature-Based Compilation of Keyword-Driven Approach)
  - Variables
 Testsuites
  - Regression
-  - End-to-End Test Cases
+   - End-to-End Test Cases
  - Functional (Structured by Feature)
-  - Login
-  - Logout
-  - Inventory
-  - Checkout
+   - Login
+   - Logout
+   - Inventory
+   - Checkout
  - Non-Functional
 
 
